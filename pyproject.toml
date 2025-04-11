@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyforged"
-version = "v0.1.0.dev0"
+version = "v0.3.0.dev0"
 description = "brief description"
 authors = [
     { name = "DirtyWork Solutions", email = "forged@open.dirtywork.solutions" }
