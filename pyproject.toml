@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyforged"
-version = "v0.3.0.dev5"
+version = "v0.3.0.dev6"
 description = "brief description"
 authors = [
     { name = "DirtyWork Solutions", email = "forged@open.dirtywork.solutions" }
 ]
-readme { file = "README.md" }
-license = { file = "LICENSE.md" }
+readme = { file = "README.md", content-type="text/markdown" }
+license = "MIT"
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -31,6 +31,10 @@ dev = [
     "pytest~=8.3.5",
     "pytest-asyncio~=0.25.3",
     "pytest-loguru~=0.4.0"
+]
+
+suite = [
+    "bedrocked"
 ]
 
 [tool.setuptools]

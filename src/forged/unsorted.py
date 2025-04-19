@@ -2,11 +2,9 @@
 To be homed or without a home.
 """
 
-import functools
 from typing import List
 from loguru import logger as log
 
-@functools.lru_cache()
 def check_installed_ecosystem(deep_checks: bool = False) -> List[str]:
     """
     Get a list of installed PyForged ecosystem packages.
@@ -34,14 +32,15 @@ def check_installed_ecosystem(deep_checks: bool = False) -> List[str]:
         try:
             __import__(package)
             results.append(package)
+            log.debug(f"{package.upper()} package was found and installed.")
         except ImportError:
-            log.debug(f"The {package.capitalize()} package is not installed. {warning_message}")
+            log.debug(f"The {package.upper()} package is not installed. {warning_message}")
         except Exception as e:
             log.error(f"An error occurred while checking {package} and so was unable to determine installation status: "
                       f"\n{e}")
 
     if results:
-        log.info(f"{len(results)} PyForged Ecosystem installations found: {results.sort()}")
+        log.info(f"{len(results)} PyForged Ecosystem installations found: {results}")
     else:
         log.warning("No native PyForged ecosystem installations could be found or detected.")
 
